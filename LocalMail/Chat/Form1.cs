@@ -1,7 +1,8 @@
+using Newtonsoft.Json;
 using System.ComponentModel;
 using System.Net;
 using System.Net.Sockets;
-
+using System.Text.Json;
 namespace Chat
 {
     public partial class Form1 : Form
@@ -13,11 +14,24 @@ namespace Chat
         {
             InitializeComponent();
         }
-
+        public class LoginData
+        {
+            public string Login { get; set; }
+            public string Password { get; set; }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-            int port= 8888;
+            
+        }
+        private bool IsValidIP(string ip)
+        {
+            IPAddress address;
+            return IPAddress.TryParse(ip, out address);
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int port = 8888;
             // Validate Client IP and Port
             if (!IsValidIP(IPTextBox.Text))
             {
@@ -27,22 +41,43 @@ namespace Chat
 
             try
             {
-                client = new TcpClient(IPTextBox.Text,port);
+
+                client = new TcpClient(IPTextBox.Text, port);
                 STR = new StreamReader(client.GetStream());
                 STW = new StreamWriter(client.GetStream());
                 STW.AutoFlush = true;
+
+                string login = textBox1.Text;
+                string password = textBox2.Text;
+
+                LoginData loginData = new LoginData()
+                {
+                    Login = login,
+                    Password = password
+                };
+
+
+                string jsonData = JsonConvert.SerializeObject(loginData);
+
+                STW.WriteLine(jsonData);
+                string response = STR.ReadLine();
+
+
+
+                if (response =="”ÒÔÂ¯ÌÓ") 
+                { 
                 Form2 form2 = new Form2();
                 form2.Show();
+                }
+                else
+                {
+                    MessageBox.Show("»ƒ» Õ¿’”… ”®¡»Ÿ≈");
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString(), "Œ¯Ë·Í‡", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-        private bool IsValidIP(string ip)
-        {
-            IPAddress address;
-            return IPAddress.TryParse(ip, out address);
         }
     }
 }

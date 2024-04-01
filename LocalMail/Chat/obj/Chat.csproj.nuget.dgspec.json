@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Student\\source\\repos\\Chat\\Chat\\Chat.csproj": {}
+    "C:\\Users\\090\\Desktop\\practice-main\\LocalMail\\Chat\\Chat.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Student\\source\\repos\\Chat\\Chat\\Chat.csproj": {
+    "C:\\Users\\090\\Desktop\\practice-main\\LocalMail\\Chat\\Chat.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Student\\source\\repos\\Chat\\Chat\\Chat.csproj",
+        "projectUniqueName": "C:\\Users\\090\\Desktop\\practice-main\\LocalMail\\Chat\\Chat.csproj",
         "projectName": "Chat",
-        "projectPath": "C:\\Users\\Student\\source\\repos\\Chat\\Chat\\Chat.csproj",
-        "packagesPath": "C:\\Users\\Student\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Student\\source\\repos\\Chat\\Chat\\obj\\",
+        "projectPath": "C:\\Users\\090\\Desktop\\practice-main\\LocalMail\\Chat\\Chat.csproj",
+        "packagesPath": "C:\\Users\\090\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\090\\Desktop\\practice-main\\LocalMail\\Chat\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Student\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\090\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,6 +48,16 @@
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

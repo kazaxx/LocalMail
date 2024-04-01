@@ -1,21 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Student\\source\\repos\\Chat\\",
+  "WorkspaceRootPath": "C:\\Users\\090\\Desktop\\practice-main\\LocalMail\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BE744C3C-50EE-4ABE-9D66-A51BE1CD3EC4}|Chat\\Chat.csproj|c:\\users\\student\\source\\repos\\chat\\chat\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{BE744C3C-50EE-4ABE-9D66-A51BE1CD3EC4}|Chat\\Chat.csproj|solutionrelative:chat\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{1D7E8003-AFAF-43F1-AB3C-BFB6920B6C50}|ServerPrac\\ServerPrac.csproj|C:\\Users\\090\\Desktop\\practice-main\\LocalMail\\serverprac\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D7E8003-AFAF-43F1-AB3C-BFB6920B6C50}|ServerPrac\\ServerPrac.csproj|solutionrelative:serverprac\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE744C3C-50EE-4ABE-9D66-A51BE1CD3EC4}|Chat\\Chat.csproj|c:\\users\\student\\source\\repos\\chat\\chat\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BE744C3C-50EE-4ABE-9D66-A51BE1CD3EC4}|Chat\\Chat.csproj|solutionrelative:chat\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1D7E8003-AFAF-43F1-AB3C-BFB6920B6C50}|ServerPrac\\ServerPrac.csproj|C:\\Users\\090\\Desktop\\practice-main\\LocalMail\\serverprac\\dbconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D7E8003-AFAF-43F1-AB3C-BFB6920B6C50}|ServerPrac\\ServerPrac.csproj|solutionrelative:serverprac\\dbconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BE744C3C-50EE-4ABE-9D66-A51BE1CD3EC4}|Chat\\Chat.csproj|c:\\users\\student\\source\\repos\\chat\\chat\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{BE744C3C-50EE-4ABE-9D66-A51BE1CD3EC4}|Chat\\Chat.csproj|C:\\Users\\090\\Desktop\\practice-main\\LocalMail\\chat\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE744C3C-50EE-4ABE-9D66-A51BE1CD3EC4}|Chat\\Chat.csproj|solutionrelative:chat\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE744C3C-50EE-4ABE-9D66-A51BE1CD3EC4}|Chat\\Chat.csproj|C:\\Users\\090\\Desktop\\practice-main\\LocalMail\\chat\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{BE744C3C-50EE-4ABE-9D66-A51BE1CD3EC4}|Chat\\Chat.csproj|solutionrelative:chat\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1D7E8003-AFAF-43F1-AB3C-BFB6920B6C50}|..\\..\\..\\Desktop\\practice-main\\ServerPrac\\ServerPrac\\ServerPrac.csproj|c:\\users\\student\\desktop\\practice-main\\serverprac\\serverprac\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BE744C3C-50EE-4ABE-9D66-A51BE1CD3EC4}|Chat\\Chat.csproj|c:\\users\\090\\desktop\\practice-main\\localmail\\chat\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE744C3C-50EE-4ABE-9D66-A51BE1CD3EC4}|Chat\\Chat.csproj|solutionrelative:chat\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE744C3C-50EE-4ABE-9D66-A51BE1CD3EC4}|Chat\\Chat.csproj|C:\\Users\\090\\Desktop\\practice-main\\LocalMail\\chat\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BE744C3C-50EE-4ABE-9D66-A51BE1CD3EC4}|Chat\\Chat.csproj|solutionrelative:chat\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,64 +34,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\Desktop\\practice-main\\ServerPrac\\ServerPrac\\Program.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\Desktop\\practice-main\\ServerPrac\\ServerPrac\\Program.cs",
-              "ToolTip": "C:\\Users\\Student\\Desktop\\practice-main\\ServerPrac\\ServerPrac\\Program.cs",
-              "RelativeToolTip": "..\\..\\..\\Desktop\\practice-main\\ServerPrac\\ServerPrac\\Program.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAgwAAAAAAAAAAA",
+              "DocumentIndex": 1,
+              "Title": "DbConnection.cs",
+              "DocumentMoniker": "C:\\Users\\090\\Desktop\\practice-main\\LocalMail\\ServerPrac\\DbConnection.cs",
+              "RelativeDocumentMoniker": "ServerPrac\\DbConnection.cs",
+              "ToolTip": "C:\\Users\\090\\Desktop\\practice-main\\LocalMail\\ServerPrac\\DbConnection.cs",
+              "RelativeToolTip": "ServerPrac\\DbConnection.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAACcAAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-28T08:03:39.401Z",
+              "WhenOpened": "2024-04-01T11:20:52.81Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\090\\Desktop\\practice-main\\LocalMail\\Chat\\Program.cs",
+              "RelativeDocumentMoniker": "Chat\\Program.cs",
+              "ToolTip": "C:\\Users\\090\\Desktop\\practice-main\\LocalMail\\Chat\\Program.cs",
+              "RelativeToolTip": "Chat\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-01T11:20:49.45Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\090\\Desktop\\practice-main\\LocalMail\\ServerPrac\\Program.cs",
+              "RelativeDocumentMoniker": "ServerPrac\\Program.cs",
+              "ToolTip": "C:\\Users\\090\\Desktop\\practice-main\\LocalMail\\ServerPrac\\Program.cs",
+              "RelativeToolTip": "ServerPrac\\Program.cs",
+              "ViewState": "AQIAAFcAAAAAAAAAAAAAABcAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-01T10:10:36.548Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Form2.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
-              "DocumentMoniker": "C:\\Users\\Student\\source\\repos\\Chat\\Chat\\Form2.cs",
+              "DocumentMoniker": "C:\\Users\\090\\Desktop\\practice-main\\LocalMail\\Chat\\Form2.cs",
               "RelativeDocumentMoniker": "Chat\\Form2.cs",
-              "ToolTip": "C:\\Users\\Student\\source\\repos\\Chat\\Chat\\Form2.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "ToolTip": "C:\\Users\\090\\Desktop\\practice-main\\LocalMail\\Chat\\Form2.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
               "RelativeToolTip": "Chat\\Form2.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-28T07:55:08.073Z",
@@ -90,28 +93,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\Student\\source\\repos\\Chat\\Chat\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\090\\Desktop\\practice-main\\LocalMail\\Chat\\Form1.cs",
               "RelativeDocumentMoniker": "Chat\\Form1.cs",
-              "ToolTip": "C:\\Users\\Student\\source\\repos\\Chat\\Chat\\Form1.cs",
+              "ToolTip": "C:\\Users\\090\\Desktop\\practice-main\\LocalMail\\Chat\\Form1.cs",
               "RelativeToolTip": "Chat\\Form1.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAQwCIAAAAdAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAD8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-28T07:40:49.548Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
-              "DocumentMoniker": "C:\\Users\\Student\\source\\repos\\Chat\\Chat\\Form1.cs",
+              "DocumentMoniker": "C:\\Users\\090\\Desktop\\practice-main\\LocalMail\\Chat\\Form1.cs",
               "RelativeDocumentMoniker": "Chat\\Form1.cs",
-              "ToolTip": "C:\\Users\\Student\\source\\repos\\Chat\\Chat\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
-              "RelativeToolTip": "Chat\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "ToolTip": "C:\\Users\\Student\\Desktop\\practice-main\\LocalMail\\Chat\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
+              "RelativeToolTip": "..\\..\\..\\..\\Student\\Desktop\\practice-main\\LocalMail\\Chat\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-28T07:33:21.441Z",
-              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435]"
+              "WhenOpened": "2024-03-28T07:33:21.441Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 99,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             }
           ]
         }
