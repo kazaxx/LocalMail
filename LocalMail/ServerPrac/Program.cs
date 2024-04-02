@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Newtonsoft.Json;
+using System.Data.SqlClient;
 using System.IO;
-using System.Linq;
 using System.Net.Sockets;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
-using Newtonsoft.Json;
+using System;
 
 namespace ServerPrac
 {
@@ -20,6 +15,7 @@ namespace ServerPrac
             public string Password { get; set; }
         }
 
+
         public class RegisterData
         {
             public string NewLogin { get; set; }
@@ -29,9 +25,10 @@ namespace ServerPrac
             public string Department { get; set; }
         }
 
+
         static void Main(string[] args)
         {
-            string connectionString = "Server=090LAPTOP;Database=Local;Integrated Security=True;"; // Строка подключения к БД
+            string connectionString = "Server=DESKTOP-2H544EL;Database=Local;Integrated Security=True;";
             IPAddress[] localIP = Dns.GetHostAddresses(Dns.GetHostName());
             string ServerIP = "";
             foreach (IPAddress address in localIP)
@@ -56,7 +53,7 @@ namespace ServerPrac
                     client = listener.AcceptTcpClient();
                     Console.WriteLine("Новый клиент подключился!");
 
-                    ProcessClient(client, connectionString); // Передайте строку подключения в ProcessClient
+                    ProcessClient(client, connectionString);
                 }
             }
             catch (Exception ex)
@@ -64,6 +61,8 @@ namespace ServerPrac
                 Console.WriteLine(ex.ToString());
             }
         }
+
+
         private static void ProcessClient(TcpClient client, string connectionString)
         {
             StreamReader STR;
@@ -71,33 +70,43 @@ namespace ServerPrac
 
             try
             {
-                // Проверка, было ли установлено соединение
                 if (!client.Connected)
                 {
-                    return; // Выход из метода, если соединение не установлено
+                    return;
                 }
 
                 STR = new StreamReader(client.GetStream());
                 STW = new StreamWriter(client.GetStream());
                 STW.AutoFlush = true;
 
-                Console.WriteLine("Подключено");
-                Console.WriteLine(client.Client.RemoteEndPoint);
 
-                // Получение данных от клиента
                 string jsonData = STR.ReadLine();
                 LoginData loginData = JsonConvert.DeserializeObject<LoginData>(jsonData);
+
+
                 if (jsonData.StartsWith("{\"NewLogin\":"))
                 {
-                    // Десериализация данных регистрации
+                   
                     RegisterData registerData = JsonConvert.DeserializeObject<RegisterData>(jsonData);
 
-                    // Подключение к базе данных
+                    
                     using (var dbConnection = new SqlConnection(connectionString))
                     {
                         dbConnection.Open();
 
-                        // SQL-запрос для INSERT
+                       
+                        string checkExistingUserQuery = "SELECT COUNT(*) FROM Users WHERE Username = @login";
+                        SqlCommand checkExistingUserCmd = new SqlCommand(checkExistingUserQuery, dbConnection);
+                        checkExistingUserCmd.Parameters.AddWithValue("@login", registerData.NewLogin);
+                        int existingUserCount = (int)checkExistingUserCmd.ExecuteScalar();
+
+                        if (existingUserCount > 0)
+                        {
+                           
+                            STW.WriteLine("Логин уже занят");
+                            return; 
+                        }
+
                         string sql = "INSERT INTO Users (Username, Password, Name, Surname, Role, Department) VALUES (@login, @password, @name, @surname, 'User', @department);";
 
                         // Создание команды и параметров
@@ -108,40 +117,48 @@ namespace ServerPrac
                         cmd.Parameters.AddWithValue("@surname", registerData.Surname);
                         cmd.Parameters.AddWithValue("@department", registerData.Department);
 
-                        // Выполнение запроса
                         cmd.ExecuteNonQuery();
-
-                        // Отправка ответа клиенту
                         STW.WriteLine("Успешная регистрация");
+
+                        Console.WriteLine("Новый пользователь зарегистрировался: Логин: " + registerData.NewLogin + ", Пароль: " + registerData.Password + ", Имя: " + registerData.Name + ", Фамилия: " + registerData.Surname + ", Отдел: " + registerData.Department);
                     }
                 }
-                // Проверка логина и пароля
-                using (var dbConnection = new SqlConnection(connectionString))
+                else
                 {
-                    dbConnection.Open();
-                    string sql = "SELECT * FROM Users WHERE username = @login AND password = @password";
-                    SqlCommand cmd = new SqlCommand(sql, dbConnection);
-                    cmd.Parameters.AddWithValue("@login", loginData.Login);
-                    cmd.Parameters.AddWithValue("@password", loginData.Password);
-
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    // Отправка ответа в зависимости от результата проверки
-                    if (reader.HasRows)
+                    using (var dbConnection = new SqlConnection(connectionString))
                     {
-                        STW.WriteLine("Успешно");
-                    }
-                    else
-                    {
-                        STW.WriteLine("Ошибка");
+                        dbConnection.Open();
+                        string sql = "SELECT * FROM Users WHERE username = @login AND password = @password";
+                        SqlCommand cmd = new SqlCommand(sql, dbConnection);
+                        cmd.Parameters.AddWithValue("@login", loginData.Login);
+                        cmd.Parameters.AddWithValue("@password", loginData.Password);
+
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        if (reader.HasRows)
+                        {
+                            STW.WriteLine("Успешно");
+
+                            while (reader.Read())
+                            {
+                                string username = reader["Username"].ToString();
+                                string name = reader["Name"].ToString();
+                                string surname = reader["Surname"].ToString();
+                                string department = reader["Department"].ToString();
+
+                                Console.WriteLine("Пользователь авторизован: Логин: " + username + ", Имя: " + name + ", Фамилия: " + surname + ", Отдел: " + department);
+                            }
+                        }
+                        else
+                        {
+                            STW.WriteLine("Ошибка");
+                        }
                     }
                 }
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
             }
         }
-      
-        
     }
 }

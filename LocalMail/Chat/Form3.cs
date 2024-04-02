@@ -25,6 +25,7 @@ namespace Chat
         {
             InitializeComponent();
             IP = DataStore.IP;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         public class RegisterData
@@ -71,9 +72,11 @@ namespace Chat
                 if (response == "Успешная регистрация")
                 {
                     MessageBox.Show("Регистрация прошла успешно!");
-                    Form2 form2 = new Form2();
-                    form2.Show();
-                    this.Close();
+                    textBox1.Clear();
+                    textBox2.Clear();
+                    textBox3.Clear();
+                    textBox4.Clear();
+                    textBox5.Clear();
                 }
                 else
                 {
@@ -91,6 +94,12 @@ namespace Chat
             Form2 form2 = new Form2();
             form2.Show();
             this.Close();
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+            this.FormBorderStyle = FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
         }
     }
 }

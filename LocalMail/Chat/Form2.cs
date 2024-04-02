@@ -25,12 +25,16 @@ namespace Chat
         {
             InitializeComponent();
             IP = DataStore.IP;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
+
+
         public class LoginData
         {
             public string Login { get; set; }
             public string Password { get; set; }
         }
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -64,7 +68,9 @@ namespace Chat
 
                 if (response == "Успешно")
                 {
-                    MessageBox.Show("Успешный вход");
+                    Form4 form4 = new Form4();
+                    form4.Show();
+                    this.Hide();
                 }
                 else
                 {
@@ -77,16 +83,25 @@ namespace Chat
             }
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+
         private void button3_Click(object sender, EventArgs e)
         {
             Form3 form3 = new Form3();
             form3.Show();
+            this.Hide();
+        }
+
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            this.FormBorderStyle = FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
         }
     }
-
 }
