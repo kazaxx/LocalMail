@@ -19,6 +19,16 @@ namespace ServerPrac
             public string Login { get; set; }
             public string Password { get; set; }
         }
+
+        public class RegisterData
+        {
+            public string NewLogin { get; set; }
+            public string Password { get; set; }
+            public string Name { get; set; }
+            public string Surname { get; set; }
+            public string Department { get; set; }
+        }
+
         static void Main(string[] args)
         {
             string connectionString = "Server=090LAPTOP;Database=Local;Integrated Security=True;"; // Строка подключения к БД
@@ -40,9 +50,9 @@ namespace ServerPrac
                 TcpListener listener = new TcpListener(IPAddress.Parse(ServerIP), port);
                 listener.Start();
                 Console.WriteLine("Слушаем подключения по " + ServerIP + ":" + port);
-
                 while (true)
                 {
+
                     client = listener.AcceptTcpClient();
                     Console.WriteLine("Новый клиент подключился!");
 
@@ -77,7 +87,34 @@ namespace ServerPrac
                 // Получение данных от клиента
                 string jsonData = STR.ReadLine();
                 LoginData loginData = JsonConvert.DeserializeObject<LoginData>(jsonData);
+                if (jsonData.StartsWith("{\"NewLogin\":"))
+                {
+                    // Десериализация данных регистрации
+                    RegisterData registerData = JsonConvert.DeserializeObject<RegisterData>(jsonData);
 
+                    // Подключение к базе данных
+                    using (var dbConnection = new SqlConnection(connectionString))
+                    {
+                        dbConnection.Open();
+
+                        // SQL-запрос для INSERT
+                        string sql = "INSERT INTO Users (Username, Password, Name, Surname, Role, Department) VALUES (@login, @password, @name, @surname, 'User', @department);";
+
+                        // Создание команды и параметров
+                        SqlCommand cmd = new SqlCommand(sql, dbConnection);
+                        cmd.Parameters.AddWithValue("@login", registerData.NewLogin);
+                        cmd.Parameters.AddWithValue("@password", registerData.Password);
+                        cmd.Parameters.AddWithValue("@name", registerData.Name);
+                        cmd.Parameters.AddWithValue("@surname", registerData.Surname);
+                        cmd.Parameters.AddWithValue("@department", registerData.Department);
+
+                        // Выполнение запроса
+                        cmd.ExecuteNonQuery();
+
+                        // Отправка ответа клиенту
+                        STW.WriteLine("Успешная регистрация");
+                    }
+                }
                 // Проверка логина и пароля
                 using (var dbConnection = new SqlConnection(connectionString))
                 {
@@ -102,9 +139,9 @@ namespace ServerPrac
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Ошибка: " + ex.Message);
             }
         }
-
+      
+        
     }
 }

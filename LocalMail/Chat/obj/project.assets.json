@@ -208,11 +208,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\090\\Desktop\\practice-main\\LocalMail\\Chat\\Chat.csproj",
+      "projectUniqueName": "C:\\Users\\090\\Documents\\GitHub\\practice\\LocalMail\\Chat\\Chat.csproj",
       "projectName": "Chat",
-      "projectPath": "C:\\Users\\090\\Desktop\\practice-main\\LocalMail\\Chat\\Chat.csproj",
+      "projectPath": "C:\\Users\\090\\Documents\\GitHub\\practice\\LocalMail\\Chat\\Chat.csproj",
       "packagesPath": "C:\\Users\\090\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\090\\Desktop\\practice-main\\LocalMail\\Chat\\obj\\",
+      "outputPath": "C:\\Users\\090\\Documents\\GitHub\\practice\\LocalMail\\Chat\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

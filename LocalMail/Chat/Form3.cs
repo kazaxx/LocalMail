@@ -1,45 +1,47 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Chat.Form1;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static Chat.Form2;
+using Newtonsoft.Json;
 
 namespace Chat
 {
-    public partial class Form2 : Form
+    public partial class Form3 : Form
     {
         private TcpClient client;
         public StreamReader STR;
         public StreamWriter STW;
         public string IP;
-        public Form2()
+
+        public Form3()
         {
             InitializeComponent();
             IP = DataStore.IP;
         }
-        public class LoginData
+
+        public class RegisterData
         {
-            public string Login { get; set; }
+            public string NewLogin { get; set; }
             public string Password { get; set; }
+            public string Name { get; set; }
+            public string Surname { get; set; }
+            public string Department { get; set; }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-
             int port = 8888;
 
             try
             {
-
                 client = new TcpClient(IP, port);
                 STR = new StreamReader(client.GetStream());
                 STW = new StreamWriter(client.GetStream());
@@ -47,28 +49,35 @@ namespace Chat
 
                 string login = textBox1.Text;
                 string password = textBox2.Text;
+                string name = textBox3.Text;
+                string surname = textBox4.Text;
+                string department = textBox5.Text;
 
-                LoginData loginData = new LoginData()
+                RegisterData registerData = new RegisterData()
                 {
-                    Login = login,
-                    Password = password
+                    NewLogin = login,
+                    Password = password,
+                    Name = name,
+                    Surname = surname,
+                    Department = department
                 };
 
-
-                string jsonData = JsonConvert.SerializeObject(loginData);
+                string jsonData = JsonConvert.SerializeObject(registerData);
 
                 STW.WriteLine(jsonData);
 
                 string response = STR.ReadLine();
 
-
-                if (response == "Успешно")
+                if (response == "Успешная регистрация")
                 {
-                    MessageBox.Show("Успешный вход");
+                    MessageBox.Show("Регистрация прошла успешно!");
+                    Form2 form2 = new Form2();
+                    form2.Show();
+                    this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("ИДИ НАХУЙ УЁБИЩЕ");
+                    MessageBox.Show("Ошибка регистрации: " + response);
                 }
             }
             catch (Exception ex)
@@ -79,14 +88,9 @@ namespace Chat
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Form3 form3 = new Form3();
-            form3.Show();
+            Form2 form2 = new Form2();
+            form2.Show();
+            this.Close();
         }
     }
-
 }
