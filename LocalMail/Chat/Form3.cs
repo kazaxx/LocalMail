@@ -20,7 +20,6 @@ namespace Chat
         public StreamReader STR;
         public StreamWriter STW;
         public string IP;
-
         public Form3()
         {
             InitializeComponent();

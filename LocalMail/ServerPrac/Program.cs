@@ -4,7 +4,7 @@ using System.IO;
 using System.Net.Sockets;
 using System.Net;
 using System;
-
+using System.Data.Common;
 namespace ServerPrac
 {
     internal class Program
@@ -25,10 +25,18 @@ namespace ServerPrac
             public string Department { get; set; }
         }
 
-
+        public class MessageData
+        {
+            public string Sender { get; set; }
+            public string Recipient { get; set; }
+            public string Message { get; set; }
+            public DateTime Date { get; set; }
+            public string Theme { get; set; }
+            public string Importance { get; set; }
+        }
         static void Main(string[] args)
         {
-            string connectionString = "Server=DESKTOP-2H544EL;Database=Local;Integrated Security=True;";
+            string connectionString = "Server=090LAPTOP;Database=Local;Integrated Security=True;";
             IPAddress[] localIP = Dns.GetHostAddresses(Dns.GetHostName());
             string ServerIP = "";
             foreach (IPAddress address in localIP)
@@ -61,7 +69,31 @@ namespace ServerPrac
                 Console.WriteLine(ex.ToString());
             }
         }
+        public static int? GetUserIdByUsername(string username, string connectionString)
+        {
+            try
+            {
+                using (var dbConnection = new SqlConnection(connectionString))
+                {
+                    string query = @"SELECT ID_Users FROM Users WHERE Username = @Username";
+                    dbConnection.Open(); // Убедитесь, что этот вызов производится только один раз и до выполнения запроса
 
+                    SqlCommand cmd = new SqlCommand(query, dbConnection);
+                    cmd.Parameters.AddWithValue("@Username", username);
+
+                    var result = cmd.ExecuteScalar(); // Используем ExecuteScalar, так как ожидаем одно скалярное значение (ID_Users)
+                    if (result != null)
+                    {
+                        return Convert.ToInt32(result);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            return null; // Возвращаем null, если пользователь не найден или произошла ошибка
+        }
 
         private static void ProcessClient(TcpClient client, string connectionString)
         {
@@ -121,6 +153,38 @@ namespace ServerPrac
                         STW.WriteLine("Успешная регистрация");
 
                         Console.WriteLine("Новый пользователь зарегистрировался: Логин: " + registerData.NewLogin + ", Пароль: " + registerData.Password + ", Имя: " + registerData.Name + ", Фамилия: " + registerData.Surname + ", Отдел: " + registerData.Department);
+                    }
+                }
+                else if (jsonData.StartsWith("{\"Sender\":"))
+                {
+                    MessageData messageData = JsonConvert.DeserializeObject<MessageData>(jsonData);
+
+                    // Предполагается, что у вас есть метод для получения ID пользователя по его имени
+                    int? senderId = GetUserIdByUsername(messageData.Sender,connectionString);
+                    int? recipID = GetUserIdByUsername(messageData.Recipient, connectionString);
+                    if (senderId > 0 && recipID > 0)
+                    {
+                        using (var dbConnection = new SqlConnection(connectionString))
+                        {
+                            dbConnection.Open();
+
+                            string sql = "INSERT INTO Mesages (Mesage, ID_Sender, Dates, ID_Recipient, Theme, Importance) VALUES (@msg, @senderId, @date, @recipientId, @theme, @importance);";
+
+                            SqlCommand cmd = new SqlCommand(sql, dbConnection);
+                            cmd.Parameters.AddWithValue("@msg", messageData.Message);
+                            cmd.Parameters.AddWithValue("@senderId", senderId);
+                            cmd.Parameters.AddWithValue("@date", messageData.Date);
+                            cmd.Parameters.AddWithValue("@recipientId", recipID);
+                            cmd.Parameters.AddWithValue("@theme", messageData.Theme);
+                            cmd.Parameters.AddWithValue("@importance", messageData.Importance);
+
+                            cmd.ExecuteNonQuery();
+                            STW.WriteLine("Сообщение отправлено");
+                        }
+                    }
+                    else
+                    {
+                        STW.WriteLine("Ошибка: отправитель или получатель не найден.");
                     }
                 }
                 else
