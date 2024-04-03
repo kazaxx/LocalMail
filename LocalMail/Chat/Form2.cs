@@ -17,6 +17,11 @@ namespace Chat
 {
     public partial class Form2 : Form
     {
+        public class User
+        {
+            public static string User_id;
+            public static string User_ip;
+        }
         private TcpClient client;
         public StreamReader STR;
         public StreamWriter STW;
@@ -68,6 +73,8 @@ namespace Chat
 
                 if (response == "Успешно")
                 {
+                    User.User_id = textBox1.Text;
+                    User.User_ip = IP;
                     Form4 form4 = new Form4();
                     form4.Show();
                     this.Hide();

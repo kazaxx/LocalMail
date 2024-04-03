@@ -46,7 +46,7 @@ namespace ServerPrac
         {
             return new SqlCommand(sql, connection);
         }
-
+        
     }
 }
    

@@ -100,3 +100,4 @@ C:\Users\aremi\Desktop\practice-main\LocalMail\Chat\obj\Debug\net8.0-windows\Cha
 C:\Users\aremi\Desktop\practice-main\LocalMail\Chat\obj\Debug\net8.0-windows\Chat.genruntimeconfig.cache
 C:\Users\aremi\Desktop\practice-main\LocalMail\Chat\obj\Debug\net8.0-windows\ref\Chat.dll
 C:\Users\aremi\Desktop\practice-main\LocalMail\Chat\obj\Debug\net8.0-windows\Chat.Form4.resources
+C:\Users\090\Documents\GitHub\practice\LocalMail\Chat\obj\Debug\net8.0-windows\Chat.Form4.resources
