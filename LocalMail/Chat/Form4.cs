@@ -114,7 +114,7 @@ namespace Chat
             allmsg_listView1.Sort();
         }
 
-        
+
         private class ListViewItemDateComparer : IComparer
         {
             private SortOrder sortOrder;
@@ -266,8 +266,6 @@ namespace Chat
         }
 
 
-
-
         private void Form4_Load(object sender, EventArgs e)
         {
             // Вызываем метод для отправки запроса на сервер для получения сообщений текущего пользователя
@@ -279,10 +277,26 @@ namespace Chat
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form3 form3 = new Form3();
-            form3.Show();
+            Form2 form2 = new Form2();
+            form2.Show();
             this.Hide();
         }
 
+        private void allmsg_listView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (allmsg_listView1.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = allmsg_listView1.SelectedItems[0];
+                string senderValue = "Отправитель: " + selectedItem.SubItems[0].Text;
+                string message = "Сообщение: " + selectedItem.SubItems[1].Text;
+                string date = "Дата: " + selectedItem.SubItems[2].Text;
+                string theme = "Тема: " + selectedItem.SubItems[3].Text;
+                string importance = "Важность: " + selectedItem.SubItems[4].Text;
+
+                Form5 detailsForm = new Form5();
+                detailsForm.SetValues(senderValue, message, date, theme, importance);
+                detailsForm.Show();
+            }
+        }
     }
 }

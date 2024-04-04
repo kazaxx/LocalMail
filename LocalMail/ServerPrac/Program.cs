@@ -38,7 +38,7 @@ namespace ServerPrac
 
         static void Main(string[] args)
         {
-            string connectionString = "Server=090LAPTOP;Database=Local;Integrated Security=True;";
+            string connectionString = "Server=DESKTOP-2H544EL;Database=Local;Integrated Security=True;";
             IPAddress[] localIP = Dns.GetHostAddresses(Dns.GetHostName());
             string ServerIP = "";
             foreach (IPAddress address in localIP)

@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "RoFZ5gP+/6k6gWih0R20TSjWdGFeSweab+WaZvGDvbWIaNHR1eThCo2/YfUYcHa92zf+Kwlw+KZ6HlquTXN8xQ==",
+  "dgSpecHash": "3k+mS0m0Uj5zBVYj4sQcgv0hjTgKcDcU0O3gaHKL4JTVMkuw14dxVfHO1ZJ5MPJ5mcII09rYOrMq1ktMbHFEdA==",
   "success": true,
-  "projectFilePath": "D:\\LocalMail\\Chat\\Chat.csproj",
+  "projectFilePath": "C:\\Users\\aremi\\Desktop\\LocalMail\\Chat\\Chat.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\090\\.nuget\\packages\\newtonsoft.json\\6.0.4\\newtonsoft.json.6.0.4.nupkg.sha512",
-    "C:\\Users\\090\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
-    "C:\\Users\\090\\.nuget\\packages\\system.text.json\\8.0.3\\system.text.json.8.0.3.nupkg.sha512"
+    "C:\\Users\\aremi\\.nuget\\packages\\newtonsoft.json\\6.0.4\\newtonsoft.json.6.0.4.nupkg.sha512",
+    "C:\\Users\\aremi\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
+    "C:\\Users\\aremi\\.nuget\\packages\\system.text.json\\8.0.3\\system.text.json.8.0.3.nupkg.sha512"
   ],
   "logs": [
     {
