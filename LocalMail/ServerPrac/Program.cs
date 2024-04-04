@@ -38,7 +38,7 @@ namespace ServerPrac
 
         static void Main(string[] args)
         {
-            string connectionString = "Server=DESKTOP-2H544EL;Database=Local;Integrated Security=True;";
+            string connectionString = "Server=090LAPTOP;Database=Local;Integrated Security=True;";
             IPAddress[] localIP = Dns.GetHostAddresses(Dns.GetHostName());
             string ServerIP = "";
             foreach (IPAddress address in localIP)
@@ -60,7 +60,7 @@ namespace ServerPrac
                 while (true)
                 {
                     client = listener.AcceptTcpClient();
-                    Console.WriteLine("Новый клиент подключился!");
+                    Console.WriteLine("Действие выполнено");
 
                     ProcessClient(client, connectionString);
                 }
@@ -176,6 +176,7 @@ namespace ServerPrac
 
                             cmd.ExecuteNonQuery();
                             STW.WriteLine("Сообщение отправлено");
+                            Console.WriteLine("Отправлено сообщение");
                         }
                     }
                     else
@@ -217,6 +218,7 @@ namespace ServerPrac
 
                         string jsonResponse = JsonConvert.SerializeObject(messages);
                         STW.WriteLine(jsonResponse);
+                        Console.WriteLine("Получение сообщений для пользователя " + recipientId);
                     }
                     else
                     {

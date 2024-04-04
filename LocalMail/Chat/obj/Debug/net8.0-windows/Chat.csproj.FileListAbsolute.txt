@@ -125,3 +125,4 @@ C:\Users\aremi\Desktop\LocalMail\Chat\obj\Debug\net8.0-windows\refint\Chat.dll
 C:\Users\aremi\Desktop\LocalMail\Chat\obj\Debug\net8.0-windows\Chat.pdb
 C:\Users\aremi\Desktop\LocalMail\Chat\obj\Debug\net8.0-windows\Chat.genruntimeconfig.cache
 C:\Users\aremi\Desktop\LocalMail\Chat\obj\Debug\net8.0-windows\ref\Chat.dll
+C:\Users\090\Documents\GitHub\practice\LocalMail\Chat\obj\Debug\net8.0-windows\Chat.Form5.resources
