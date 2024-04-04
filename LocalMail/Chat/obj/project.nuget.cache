@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9TDaI9ZOu3YN5jw7AspkGTF3JeLG4rFSxjfJBizBYTrxe8tJ+I4ziT5WID7VOk5WigngGlCskNIx3TvDuaGoTg==",
+  "dgSpecHash": "RoFZ5gP+/6k6gWih0R20TSjWdGFeSweab+WaZvGDvbWIaNHR1eThCo2/YfUYcHa92zf+Kwlw+KZ6HlquTXN8xQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\090\\Documents\\GitHub\\practice\\LocalMail\\Chat\\Chat.csproj",
+  "projectFilePath": "D:\\LocalMail\\Chat\\Chat.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\090\\.nuget\\packages\\newtonsoft.json\\6.0.4\\newtonsoft.json.6.0.4.nupkg.sha512",
     "C:\\Users\\090\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
