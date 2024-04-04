@@ -40,11 +40,14 @@
             // 
             // allmsg_listView1
             // 
-            allmsg_listView1.Location = new Point(-4, 83);
+            allmsg_listView1.FullRowSelect = true;
+            allmsg_listView1.GridLines = true;
+            allmsg_listView1.Location = new Point(6, 83);
             allmsg_listView1.Name = "allmsg_listView1";
             allmsg_listView1.Size = new Size(189, 330);
             allmsg_listView1.TabIndex = 0;
             allmsg_listView1.UseCompatibleStateImageBehavior = false;
+            allmsg_listView1.View = View.Details;
             // 
             // msq_textBox1
             // 

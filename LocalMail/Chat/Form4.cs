@@ -25,6 +25,8 @@ namespace Chat
             user_ID = User.User_id;
             user_IP = User.User_ip;
             InitializeComponent();
+            AddColumnsToListView();
+            this.Load += new System.EventHandler(this.Form4_Load);
         }
         public class MessageData
         {
@@ -74,5 +76,55 @@ namespace Chat
                 MessageBox.Show("Ошибка отправки сообщения: " + response);
             }
         }
+
+        private void AddColumnsToListView()
+        {
+            // Создание столбцов для ListView
+            allmsg_listView1.Columns.Add("Sender", 100, HorizontalAlignment.Left);
+            allmsg_listView1.Columns.Add("Message", 200, HorizontalAlignment.Left);
+            allmsg_listView1.Columns.Add("Date", 120, HorizontalAlignment.Left);
+            allmsg_listView1.Columns.Add("Theme", 150, HorizontalAlignment.Left);
+            allmsg_listView1.Columns.Add("Importance", 80, HorizontalAlignment.Left);
+        }
+        private void RequestMessagesFromServer(string userID)
+        {
+            int port = 8888;
+            client = new TcpClient(user_IP, port);
+            STR = new StreamReader(client.GetStream());
+            STW = new StreamWriter(client.GetStream());
+            STW.AutoFlush = true;
+
+            // Отправка запроса на сервер для получения сообщений пользователя с указанным ID
+            STW.WriteLine("{\"GetMessages\": \"" + userID + "\"}");
+
+            // Ожидание ответа от сервера
+            string jsonResponse = STR.ReadLine();
+
+            // Десериализация JSON-ответа в список сообщений
+            List<MessageData> messages = JsonConvert.DeserializeObject<List<MessageData>>(jsonResponse);
+
+            // Очищаем ListView перед добавлением новых данных
+            allmsg_listView1.Items.Clear();
+
+            // Добавление полученных сообщений в ListView
+            foreach (var message in messages)
+            {
+                ListViewItem item = new ListViewItem(message.Sender);
+                item.SubItems.Add(message.Message);
+                item.SubItems.Add(message.Date.ToString());
+                item.SubItems.Add(message.Theme);
+                item.SubItems.Add(message.Importance);
+                allmsg_listView1.Items.Add(item);
+            }
+        }
+
+
+        // Обработчик события загрузки формы
+        private void Form4_Load(object sender, EventArgs e)
+        {
+            // Вызываем метод для отправки запроса на сервер для получения сообщений текущего пользователя
+            RequestMessagesFromServer(user_ID);
+        }
+
     }
 }
