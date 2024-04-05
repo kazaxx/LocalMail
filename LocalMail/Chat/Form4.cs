@@ -298,5 +298,6 @@ namespace Chat
                 detailsForm.Show();
             }
         }
+
     }
 }

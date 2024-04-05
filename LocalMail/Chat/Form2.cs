@@ -81,7 +81,7 @@ namespace Chat
                 }
                 else
                 {
-                    MessageBox.Show("ИДИ НАХУЙ УЁБИЩЕ");
+                    MessageBox.Show("Ошибка входа");
                 }
             }
             catch (Exception ex)
